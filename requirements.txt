@@ -1,0 +1,13 @@
+pdfplumber
+python-docx
+pandas
+openpyxl
+tqdm
+pytesseract
+pdf2image
+Pillow
+nltk
+streamlit
+plotly
+wordcloud
+matplotlib
