@@ -1,0 +1,7 @@
+Filename,Detected_Format,MIME_Type,Integrity,Sentiment,Score,Project_IDs,Full_Extracted_Text,Sections,Tables
+Aging_Report_Premium.pdf,PDF,application/pdf,✅ Match,positive,0.4019,,"A/P & A/R Aging Report (Premium Sample)
+Account Current 30 Days 60 Days Total
+Customer X 500 0 200 700
+Vendor Y 0 300 0 300
+Overdue balances (60+ days) highlighted for clarity.
+","[{""text"": ""A/P & A/R Aging Report (Premium Sample)"", ""is_bold"": false, ""level"": 2}, {""text"": ""Account"", ""is_bold"": false, ""level"": 2}, {""text"": ""Customer X"", ""is_bold"": false, ""level"": 2}, {""text"": ""Vendor Y"", ""is_bold"": false, ""level"": 2}, {""text"": ""Current"", ""is_bold"": false, ""level"": 2}, {""text"": ""30 Days"", ""is_bold"": false, ""level"": 2}, {""text"": ""60 Days"", ""is_bold"": false, ""level"": 2}, {""text"": ""500"", ""is_bold"": false, ""level"": 2}, {""text"": ""0"", ""is_bold"": false, ""level"": 2}, {""text"": ""0"", ""is_bold"": false, ""level"": 2}, {""text"": ""300"", ""is_bold"": false, ""level"": 2}, {""text"": ""200"", ""is_bold"": false, ""level"": 2}, {""text"": ""0"", ""is_bold"": false, ""level"": 2}, {""text"": ""Total"", ""is_bold"": false, ""level"": 2}, {""text"": ""700"", ""is_bold"": false, ""level"": 2}, {""text"": ""300"", ""is_bold"": false, ""level"": 2}, {""text"": ""Overdue balances (60+ days) highlighted for clarity."", ""is_bold"": false, ""level"": 2}]",1

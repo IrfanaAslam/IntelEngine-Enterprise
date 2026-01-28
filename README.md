@@ -1,174 +1,139 @@
-# 🛡️ IntelEngine Enterprise – Industrial Research Intelligence Platform
+## 📄 Reproducible Research Paper Extractor & Summarizer
 
-**Author:** Irfana Aslam  
-**Email:** irfanaaslam0786@gmail.com  
-**Location:** Pakistan  
+Author: Irfana Aslam
+GitHub: https://github.com/yourusername
 
----
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+Contact: irfanaaslam69@gmail.com
 
-## **Project Overview**
+## Overview
 
-IntelEngine Enterprise is an **advanced, industrial-grade research data extraction and analysis platform**. It allows users to:
+This project is a Streamlit-based application that extracts all valuable content from PDFs and DOCX research papers, including:
 
-- Extract **full text** and hierarchical structure (sections/headings) from PDFs and DOCX documents.  
-- Perform **sentiment analysis** and **language detection** on document content.  
-- Automatically detect **tables** in PDFs and DOCX files and export them to structured formats.  
-- Maintain **data integrity and file format verification**.  
-- Provide **multi-format exports**: Excel (full text, sections, tables), CSV, and JSON.  
-- Enable **batch renaming of files** based on metadata and content attributes.  
-- Store extracted information in a **SQLite database** for efficient querying and dashboard visualizations.  
-- Scale to **hundreds of documents in parallel** using multithreading safely.  
+Full text extraction (even from scanned PDFs via OCR)
 
-This project is designed for **researchers, analysts, and organizations** who deal with **large volumes of research documents** and need **automated insights and structured data**.
+Table extraction (with Camelot and Tabula)
 
----
+Image extraction (figures, graphs, charts)
 
-## **Project Features**
+Section-wise summaries using Hugging Face Transformers
 
-- **Full-text extraction** from PDF, DOCX, and other text files  
-- **Hierarchical structure detection** (bold text in PDFs, headings in DOCX)  
-- **Sentiment analysis** using VADER  
-- **Language detection** using `langdetect`  
-- **Entity extraction**: emails, project IDs, currency  
-- **Table detection and extraction** for PDF and DOCX  
-- **Batch rename utility** with pattern-based naming (`{name}_{date}_{sentiment}_{ext}`)  
-- **SQLite database integration** with thread-safe operations  
-- **Multi-format exports**: Excel, CSV, JSON  
-- **Interactive Streamlit dashboard** for analytics, search, and exports  
-- **Parallel processing** for speed and scalability  
+Downloadable JSON output for structured storage and analysis
 
----
+This tool is designed for researchers, students, and content writers who need to process multiple papers efficiently and accurately.
 
-## **Prerequisites & Installation**
+## Key Features
 
-1. **Clone the repository:**
+📄 Full text extraction from PDFs & DOCX files
 
-```bash
-git clone https://github.com/IrfanaAslam/IntelEngine-Enterprise.git
-cd IntelEngine-Enterprise
-Create and activate a virtual environment (recommended):
+🖼️ Image extraction from research papers
 
-bash
-Copy code
+📊 Table extraction from PDFs (Camelot & Tabula)
+
+🔍 OCR support for scanned content
+
+✨ Automatic section-wise summarization
+
+💾 Download results as structured JSON
+
+📂 Upload multiple files at once (up to 200MB per file)
+
+💡 User-friendly and visually appealing interface
+
+##  Installation
+
+Clone the repository
+
+git clone https://github.com/IrfanaAslam/reproducible-pdf-extraction-pipeline.git
+cd reproducible-pdf-extraction-pipeline
+
+
+Create a virtual environment (optional but recommended)
+
 python -m venv venv
 # Windows
 venv\Scripts\activate
 # macOS/Linux
 source venv/bin/activate
-Install dependencies:
 
-bash
-Copy code
+
+##  Install dependencies
+
 pip install -r requirements.txt
-requirements.txt should contain:
 
-rust
-Copy code
-pdfplumber
-python-docx
-pandas
-openpyxl
-tqdm
-nltk
-streamlit
-plotly
-wordcloud
-matplotlib
-filetype
-pdfminer.six
-xlsxwriter
-langdetect
-Download NLTK VADER lexicon (automatically handled in extractor.py)
 
-Project Structure
-powershell
-Copy code
-IntelEngine-Enterprise/
-│
-├── src/
-│   ├── extractor.py          # AdvancedResearchExtractor class
-│   ├── batch_rename.py       # Batch rename utility
-│
-├── data/
-│   ├── temp/                 # Temporary uploaded files
-│   ├── renamed/              # Renamed files
-│   └── research.db           # SQLite database
-│
-├── logs/                     # Logs directory
-├── app.py                    # Main Streamlit app
-├── requirements.txt
-└── README.md
-How to Run the Project
-Start the Streamlit app:
+## ⚠️ Make sure you have the following installed:
 
-bash
-Copy code
+Tesseract OCR
+
+Java (required for Tabula)
+
+Poppler (required for pdfplumber for some PDFs)
+
+Run the application
+
 streamlit run app.py
-Upload Documents:
 
-PDFs, DOCX, or CSV files in the sidebar
 
-Click Process Documents to analyze files
+Open in browser: Streamlit will automatically open a browser window at http://localhost:8501
 
-Dashboard Features:
+##  Usage
 
-Analytics Tab: Document count, sentiment, tables, languages, sunburst visualization
+Click “Browse files” or drag-and-drop PDF/DOCX research papers.
 
-Search Tab: Full-text and section search across all documents
+The app will automatically:
 
-Integrity Map: Verify file format integrity
+Extract all text, tables, and images
 
-Batch Rename Tab: Preview and apply automated file renaming
+Perform OCR on scanned PDFs
 
-Export Options:
+Generate section-wise summaries
 
-Download extracted data in Excel, CSV, or JSON
+Download a structured JSON file with all extracted content.
 
-Excel exports include Full Text, Sections, and Tables sheets
+## Example Output
+{
+  "file_name": "Sample_Research_Paper.pdf",
+  "text": "Full text of the paper...",
+  "images": ["figure1.png", "figure2.png"],
+  "tables": [
+      {"table_1": [["Header1", "Header2"], ["Value1", "Value2"]]}
+  ],
+  "summary": {
+      "abstract": "Summary of abstract...",
+      "introduction": "Summary of introduction...",
+      "conclusion": "Summary of conclusion..."
+  }
+}
 
-Example Rename Pattern
-text
-Copy code
-{name}_{date}_{sentiment}.{ext}
-name → Original file name
+## Future Enhancements
 
-date → Current date (YYYY-MM-DD)
+Support for more complex layouts and multi-column PDFs
 
-sentiment → Detected sentiment (POSITIVE, NEUTRAL, NEGATIVE)
+Advanced NLP-based topic extraction and key phrase detection
 
-ext → File extension (pdf, docx, etc.)
+Integration with citation and reference extraction
 
-Example: Motivation_Letter_2026-01-27_POSITIVE.pdf
+Cloud deployment for large-scale processing
 
-Contributing & Collaboration
-Irfana Aslam is actively looking for researchers, developers, and data enthusiasts to contribute to this project and future AI-driven research automation tools.
+## Call for Collaboration
 
-If you are interested in:
+I am looking to collaborate with developers, data scientists, and researchers to improve this tool.
 
-Adding advanced NLP features
+If you are interested in contributing:
 
-Improving table detection and auto-formatting
+Improving extraction accuracy
 
-Integrating vision-based PDF parsing
+Adding new summarization models
 
-Building enterprise-ready dashboards
+Supporting more file formats
 
-Please feel free to fork the repo, submit pull requests, or reach out at:
-Email: irfanaaslam0786@gmail.com
+Feel free to fork this repository, raise issues, or submit pull requests.
 
-Let’s build the next generation of industrial research intelligence platforms together! 🚀
+## License
 
-License
-This project is released under the MIT License. See LICENSE file for details.
+This project is licensed under the MIT License. See LICENSE
+ for details.
 
-Acknowledgements
-PDF processing: pdfplumber, pdfminer.six
+🚀 Let’s make research more reproducible and accessible!
 
-DOCX parsing: python-docx
-
-Sentiment analysis: NLTK VADER
-
-Dashboard: Streamlit
-
-Data visualization: Plotly, Matplotlib
+## Irfana Aslam | Python & AI Enthusiast | LinkedIn | www.linkedin.com/in/irfana-aslam-b26751176
